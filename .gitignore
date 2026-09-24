@@ -1,0 +1,14 @@
+node_modules/
+*.log
+coverage/
+*.tsbuildinfo
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+!.env.sample
+backend/uploads/
+.expo/
+dist/
+web-build/
