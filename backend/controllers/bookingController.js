@@ -116,11 +116,11 @@ exports.getAllBookings = async (req, res) => {
       .sort({
         createdAt: -1
       });
-
+       // Return bookings sorted by newest first
     res.status(200).json(bookings);
 
   } catch (error) {
-
+  // Handle unexpected booking retrieval errors
     console.error(
       'GET MY BOOKINGS ERROR:',
       error
