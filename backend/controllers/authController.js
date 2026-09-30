@@ -2,6 +2,9 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+
+// Password validation:
+// Minimum 8 characters, uppercase, lowercase, number, and special character
 const validatePassword = (password) => {
   const hasMinLength = password.length >= 8;
   const hasUppercase = /[A-Z]/.test(password);
