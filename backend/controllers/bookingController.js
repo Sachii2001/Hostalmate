@@ -196,7 +196,8 @@ exports.getBookingById = async (req, res) => {
 
 exports.updateBookingStatus = async (req, res) => {
   try {
-
+    
+    // Define the allowed booking statuses
     const { bookingId } = req.params;
     const { status } = req.body;
 
