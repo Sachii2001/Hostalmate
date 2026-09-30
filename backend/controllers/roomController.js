@@ -4,8 +4,9 @@ const Room = require('../models/Room');
 exports.createRoom = async (req, res) => {
   try {
     const { roomNumber, roomType, pricePerMonth, capacity, description } = req.body;
+    // Get uploaded room image path
     const image = req.file ? req.file.path : '';
-
+  // Create a new room with the provided details
     const newRoom = new Room({
       roomNumber,
       roomType,
@@ -14,10 +15,13 @@ exports.createRoom = async (req, res) => {
       description,
       image
     });
+     // Save the new room to the database
 
     await newRoom.save();
     res.status(201).json({ message: 'Room created successfully!', newRoom });
   } catch (error) {
+
+  // Handle unexpected room creation errors
     res.status(500).json({ error: error.message });
   }
 };
