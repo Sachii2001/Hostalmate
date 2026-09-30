@@ -161,7 +161,7 @@ exports.getBookingById = async (req, res) => {
     }
 
     // Security:
-    // User can only view their own booking
+    //Ensure users can only view their own booking
     if (
       booking.userId._id.toString() !==
       req.user.id
