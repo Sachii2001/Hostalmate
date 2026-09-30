@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+// Import room controller functions for room management operations
 const {
   createRoom,
   getAllRooms,
@@ -8,7 +8,7 @@ const {
   updateRoom,
   deleteRoom
 } = require('../controllers/roomController');
-
+// Import middleware for image uploads and user authentication
 const upload = require('../middleware/uploadMiddleware');
 const protect = require('../middleware/authMiddleware');
 
