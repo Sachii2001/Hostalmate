@@ -47,11 +47,11 @@ Room create, edit, and delete screens are available to any authenticated user. T
 
 ### Services and ports
 
-| Service | Default port | Notes |
-| --- | ---: | --- |
-| Express API | `5000` | Can be changed with the backend `PORT` environment variable. |
-| MongoDB | `27017` | Standard local MongoDB port; hosted MongoDB uses the connection string's configured endpoint. |
-| Expo / Metro | `8081` | Expo may select another available port; use the URL printed by Expo. |
+| Service | Default port | Run command | Notes |
+| --- | ---: | --- | --- |
+| Express API | `5000` | From repository root: `npm run dev` | Can be changed with the `PORT` environment variable. |
+| MongoDB | `27017` | Start the local MongoDB service (or run `mongod` if installed as a process). | For hosted MongoDB, set `MONGO_URI`; no local MongoDB process is needed. |
+| Expo / Metro | `8081` | From `frontend/`: `npm run dev` | Expo may select another available port; use the URL printed by Expo. |
 
 The API starts listening only after MongoDB connects. `GET /test` returns a small response to verify that the API is reachable.
 
