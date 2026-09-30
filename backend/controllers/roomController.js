@@ -71,17 +71,17 @@ exports.updateRoom = async (req, res) => {
         message: 'Room not found'
       });
     }
-
+  // Update only the fields provided in the request
     room.roomNumber = roomNumber ?? room.roomNumber;
     room.roomType = roomType ?? room.roomType;
     room.pricePerMonth = pricePerMonth ?? room.pricePerMonth;
     room.capacity = capacity ?? room.capacity;
     room.description = description ?? room.description;
-
+ // Update the room image if a new image is uploaded
     if (req.file) {
       room.image = req.file.path;
     }
-
+  // Update room availability based on current occupancy
     if (room.currentOccupancy >= room.capacity) {
       room.availabilityStatus = 'Full';
     } else {
@@ -90,6 +90,7 @@ exports.updateRoom = async (req, res) => {
 
     await room.save();
 
+    // Handle unexpected room update errors
     res.status(200).json({
       message: 'Room updated successfully',
       room
