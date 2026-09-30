@@ -32,7 +32,7 @@ app.use(
   '/api/auth',
   require('./routes/authRoutes')
 );
-
+// Test route to verify that the server is running
 app.get('/test', (req, res) => {
   res.json({
     message: 'Main server is working!'
