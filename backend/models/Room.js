@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Define the room data structure, validation rules, availability, and timestamps
 const roomSchema = new mongoose.Schema({
   roomNumber: { type: String, required: true },
   roomType: { type: String, enum: ['Single', 'Double', 'Triple'], required: true }, //
