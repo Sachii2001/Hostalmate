@@ -21,12 +21,13 @@ exports.register = async (req, res) => {
     const { name, email, password } = req.body;
 
     // Input validation
+    // Validate required fields
     if (!name || !email || !password) {
       return res.status(400).json({
         message: 'Name, email and password are required'
       });
     }
-
+     // Validate password strength
     if (!validatePassword(password)) {
       return res.status(400).json({
         message: 'Password must include at least 8 characters, uppercase and lowercase letters, a number, and a special character.'
