@@ -122,7 +122,7 @@ exports.login = async (req, res) => {
         email: user.email
       }
     });
-
+ // Handle unexpected server errors
   } catch (error) {
     res.status(500).json({
       error: error.message
