@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+// Import booking controller functions for booking operations
 const {
   createBooking,
   getAllBookings,
@@ -8,7 +8,7 @@ const {
   updateBookingStatus,
   deleteBooking
 } = require('../controllers/bookingController');
-
+// Import authentication middleware to protect booking routes
 const protect = require('../middleware/authMiddleware');
 
 
