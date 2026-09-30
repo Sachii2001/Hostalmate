@@ -208,21 +208,24 @@ exports.updateRoom = async (req, res) => {
 // Delete Room
 exports.deleteRoom = async (req, res) => {
   try {
+     // Find the room by ID
     const room = await Room.findById(req.params.id);
-
+ // Return an error if the room does not exist
     if (!room) {
       return res.status(404).json({
         message: 'Room not found'
       });
     }
-
+  // Delete the room from the database
     await room.deleteOne();
-
+ 
+    // Return a successful deletion response
     res.status(200).json({
       message: 'Room deleted successfully'
     });
 
   } catch (error) {
+    // Handle unexpected room deletion errors
     res.status(500).json({
       error: error.message
     });
