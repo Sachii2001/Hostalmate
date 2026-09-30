@@ -141,7 +141,7 @@ exports.getAllBookings = async (req, res) => {
 
 exports.getBookingById = async (req, res) => {
   try {
-
+    // Find booking by ID and populate user and room details
     const booking = await Booking.findById(
       req.params.id
     )
@@ -153,7 +153,7 @@ exports.getBookingById = async (req, res) => {
         'roomId',
         'roomNumber roomType pricePerMonth'
       );
-
+      // Return an error if the booking does not exist
     if (!booking) {
       return res.status(404).json({
         message: 'Booking not found'
