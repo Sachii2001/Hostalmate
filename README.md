@@ -339,4 +339,8 @@ The root `npm test` script is currently a placeholder and exits with an error. N
 - There are no user roles. Any authenticated account can use room create, update, and delete endpoints; booking status changes are also available to the booking owner. Do not assume the current authorization rules provide an administrator workflow.
 - Room images are stored on the API host's local disk. There is no cloud object storage or upload size/type policy configured.
 - The root package has the backend development command; `backend/package.json` is not present in the current checkout.
+<<<<<<< HEAD
 - The root `npm test` script is not an automated test suite. CI, deployment, monitoring, and production secrets management are not configured here.
+=======
+- The root `npm test` script is not an automated test suite. CI, deployment, monitoring, and production secrets management are not configured here.
+>>>>>>> e0dda91 (Add comprehensive project documentation and QA guide)
