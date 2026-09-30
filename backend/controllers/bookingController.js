@@ -320,9 +320,10 @@ exports.updateBookingStatus = async (req, res) => {
 
     // Update booking status
     booking.status = status;
-
+ // Save the updated booking status
     await booking.save();
-
+     
+// Return the updated booking details 
     res.status(200).json({
       message:
         `Booking status updated to ${status}`,
@@ -330,7 +331,7 @@ exports.updateBookingStatus = async (req, res) => {
     });
 
   } catch (error) {
-
+  // Handle unexpected booking update errors
     console.error(
       'UPDATE BOOKING ERROR:',
       error
