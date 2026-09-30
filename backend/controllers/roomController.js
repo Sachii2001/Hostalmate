@@ -29,9 +29,11 @@ exports.createRoom = async (req, res) => {
 // Get All Rooms
 exports.getAllRooms = async (req, res) => {
   try {
+    // Retrieve all rooms from the database
     const rooms = await Room.find();
     res.status(200).json(rooms);
   } catch (error) {
+    // Handle unexpected error while retrieving rooms
     res.status(500).json({ error: error.message });
   }
 };
@@ -40,7 +42,7 @@ exports.getAllRooms = async (req, res) => {
 exports.getRoomById = async (req, res) => {
   try {
     const room = await Room.findById(req.params.id);
-
+ // Return an error if the room does not exist
     if (!room) {
       return res.status(404).json({
         message: 'Room not found'
@@ -48,7 +50,7 @@ exports.getRoomById = async (req, res) => {
     }
 
     res.status(200).json(room);
-
+ // Handle unexpected room retrieval errors
   } catch (error) {
     res.status(500).json({
       error: error.message
