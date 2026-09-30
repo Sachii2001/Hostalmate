@@ -42,7 +42,8 @@ exports.register = async (req, res) => {
         message: 'Email is already registered'
       });
     }
-
+    
+    // Hash password before saving it to the database
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
