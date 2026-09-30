@@ -51,8 +51,7 @@ exports.createBooking = async (req, res) => {
         message: 'Room not found'
       });
     }
-
-    // Check room availability
+// Check whether the room has reached its capacity
     if (room.availabilityStatus === 'Full') {
       return res.status(400).json({
         message: 'Room is currently full'
@@ -69,13 +68,13 @@ exports.createBooking = async (req, res) => {
     });
 
     await newBooking.save();
-
+     // Return successful booking response
     res.status(201).json({
       message:
         'Booking request sent successfully',
       booking: newBooking
     });
-
+    // Handle unexpected booking creation errors
   } catch (error) {
 
     console.error(
