@@ -93,12 +93,13 @@ exports.login = async (req, res) => {
         message: 'User not found!'
       });
     }
-
+    
+// Compare entered password with hashed password
     const isMatch = await bcrypt.compare(
       password,
       user.password
     );
-
+     // Reject invalid credentials
     if (!isMatch) {
       return res.status(400).json({
         message: 'Invalid credentials!'
@@ -111,7 +112,8 @@ exports.login = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: '1d' }
     );
-
+ 
+// Return token and user details
     res.status(200).json({
       token,
       user: {
