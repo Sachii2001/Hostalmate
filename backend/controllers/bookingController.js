@@ -26,6 +26,7 @@ exports.createBooking = async (req, res) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
 
+    // Validate date format
     if (
       Number.isNaN(start.getTime()) ||
       Number.isNaN(end.getTime())
@@ -34,7 +35,7 @@ exports.createBooking = async (req, res) => {
         message: 'Invalid date format'
       });
     }
-
+     // Ensure the end date is after the start date
     if (end <= start) {
       return res.status(400).json({
         message:
