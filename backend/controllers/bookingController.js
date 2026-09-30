@@ -389,7 +389,7 @@ exports.deleteBooking = async (req, res) => {
         if (room.currentOccupancy > 0) {
           room.currentOccupancy -= 1;
         }
-
+         // Mark the room as available when capacity is released
         if (
           room.currentOccupancy <
           room.capacity
@@ -412,7 +412,8 @@ exports.deleteBooking = async (req, res) => {
     });
 
   } catch (error) {
-
+ 
+  // Handle unexpected booking deletion errors
     console.error(
       'DELETE BOOKING ERROR:',
       error
