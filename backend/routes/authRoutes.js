@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-
+// Define authentication routes for user registration, login, and route testing
 const {
   register,
   login
