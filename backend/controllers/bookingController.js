@@ -219,7 +219,7 @@ exports.updateBookingStatus = async (req, res) => {
     const booking = await Booking.findById(
       bookingId
     );
-
+  // Return an error if the booking does not exist
     if (!booking) {
       return res.status(404).json({
         message: 'Booking not found'
@@ -241,7 +241,7 @@ exports.updateBookingStatus = async (req, res) => {
     const room = await Room.findById(
       booking.roomId
     );
-
+     // Return an error if the booking does not exist
     if (!room) {
       return res.status(404).json({
         message: 'Room not found'
