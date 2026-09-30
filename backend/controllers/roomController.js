@@ -133,14 +133,15 @@ exports.deleteRoom = async (req, res) => {
 // Get Single Room
 exports.getRoomById = async (req, res) => {
   try {
+       // Find the room using the provided ID
     const room = await Room.findById(req.params.id);
-
+  // Return an error if the room does not exist
     if (!room) {
       return res.status(404).json({
         message: 'Room not found'
       });
     }
-
+ // Return the requested room details
     res.status(200).json(room);
 
   } catch (error) {
@@ -154,6 +155,7 @@ exports.getRoomById = async (req, res) => {
 // Update Room
 exports.updateRoom = async (req, res) => {
   try {
+    //room dtails from request body
     const {
       roomNumber,
       roomType,
@@ -161,9 +163,10 @@ exports.updateRoom = async (req, res) => {
       capacity,
       description
     } = req.body;
-
+ 
+    // Find the room by ID
     const room = await Room.findById(req.params.id);
-
+   // Update only the fields provided in the request
     if (!room) {
       return res.status(404).json({
         message: 'Room not found'
