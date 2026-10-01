@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cors());
 
 
-// Uploads folder එක public කිරීම
+// Uploads folder එක public 
 app.use(
   '/uploads',
   express.static(path.join(__dirname, 'uploads'))
