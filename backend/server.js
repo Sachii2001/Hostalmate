@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cors());
 
 
-// Uploads folder එක public 
+// Uploads folder public 
 app.use(
   '/uploads',
   express.static(path.join(__dirname, 'uploads'))
