@@ -1,3 +1,4 @@
+// Import Stack navigation from Expo Router
 import { Stack } from 'expo-router';
 
 export default function RootLayout() {
