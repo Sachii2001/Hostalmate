@@ -2,9 +2,7 @@ const Booking = require('../models/Booking');
 const Room = require('../models/Room');
 
 
-// ==========================================
 // CREATE BOOKING
-// ==========================================
 
 exports.createBooking = async (req, res) => {
   try {
@@ -91,9 +89,7 @@ exports.createBooking = async (req, res) => {
 };
 
 
-// ==========================================
 // GET MY BOOKINGS
-// ==========================================
 
 exports.getAllBookings = async (req, res) => {
   try {
@@ -135,9 +131,7 @@ exports.getAllBookings = async (req, res) => {
 };
 
 
-// ==========================================
 // GET SINGLE BOOKING
-// ==========================================
 
 exports.getBookingById = async (req, res) => {
   try {
@@ -190,9 +184,7 @@ exports.getBookingById = async (req, res) => {
 };
 
 
-// ==========================================
 // UPDATE BOOKING STATUS
-// ==========================================
 
 exports.updateBookingStatus = async (req, res) => {
   try {
@@ -249,9 +241,7 @@ exports.updateBookingStatus = async (req, res) => {
     }
 
 
-    // ======================================
     // APPROVE BOOKING
-    // ======================================
 
     if (
       status === 'Approved' &&
@@ -288,9 +278,7 @@ exports.updateBookingStatus = async (req, res) => {
     }
 
 
-    // ======================================
     // REJECT / CANCEL APPROVED BOOKING
-    // ======================================
 
     if (
       (
@@ -346,9 +334,7 @@ exports.updateBookingStatus = async (req, res) => {
 };
 
 
-// ==========================================
 // DELETE BOOKING
-// ==========================================
 
 exports.deleteBooking = async (req, res) => {
   try {
